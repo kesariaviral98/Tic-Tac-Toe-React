@@ -5,9 +5,11 @@ A simple Tic Tac Toe game built with React and Vite.
 ## Features
 
 - 3x3 interactive game board
-- Alternating turns between two players
+- Players take turns as **X** and **O**
 - Winner detection for rows, columns, and diagonals
-- Automatic board reset after a win
+- Draw detection when the board is full
+- Current turn indicator
+- Manual reset button
 
 ## Tech Stack
 
@@ -78,6 +80,3 @@ tic_tac_toe/
 └── vite.config.js
 ```
 
-## GitHub Notes
-
-Before pushing this project, make sure `node_modules/` is not committed. It is now included in `.gitignore`, so GitHub should only track your source files and configuration.
