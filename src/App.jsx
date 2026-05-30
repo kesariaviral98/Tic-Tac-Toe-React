@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./App.css";
 
 const SYMBOLS = { 1: "X", 2: "O" };
 
@@ -63,21 +64,23 @@ const App = () => {
   const currentPlayer = SYMBOLS[chance % 2 === 0 ? 1 : 2];
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <h1 className="text-2xl font-bold">Tic Tac Toe</h1>
-      <p className="text-lg">Turn: {currentPlayer}</p>
-      <div className="grid grid-cols-3 gap-2">
+    <div className="game">
+      <h1 className="game-title">Tic Tac Toe</h1>
+      <p className="turn-indicator">
+        Turn: <strong>{currentPlayer}</strong>
+      </p>
+      <div className="board">
         {board.map((cell, i) => (
           <button
             key={i}
-            className="h-16 w-16 border text-2xl flex items-center justify-center"
+            className={`cell ${cell === 1 ? "cell-x" : cell === 2 ? "cell-o" : ""}`}
             onClick={() => handleClick(i)}
           >
             {SYMBOLS[cell] ?? ""}
           </button>
         ))}
       </div>
-      <button onClick={resetGame} className="mt-2 px-4 py-2 border rounded">
+      <button className="reset-btn" onClick={resetGame}>
         Reset
       </button>
     </div>
@@ -85,4 +88,3 @@ const App = () => {
 };
 
 export default App;
-
